@@ -20,8 +20,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const uri="mongodb+srv://admin-shivam:17042002@cluster0.o1yomxq.mongodb.net/todolistDB";
-mongoose.connect(uri);
+mongoose.connect(process.env.MONGO_URI);
 
 const item1 = new Itemz({
   name: "Welcome to your todo list."
